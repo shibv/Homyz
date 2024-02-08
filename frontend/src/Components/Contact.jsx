@@ -36,7 +36,7 @@ function Contact({listing}) {
           value={message}
           onChange={onChange}
           placeholder='Enter your message here...'
-          className='w-full border p-3 rounded-lg'
+          className='w-full border text-black p-3 rounded-lg'
         ></textarea>
 
         <Link
