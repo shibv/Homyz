@@ -4,6 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import { useSelector } from 'react-redux'
 import { GoSun } from "react-icons/go";
 import { IoMoonOutline } from "react-icons/io5";
+import logo from '../assets/home.png'
 
 
 
@@ -36,8 +37,10 @@ const Header = ({ themeStatus, onSetTheme }) => {
     <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
       <Link to='/'>
         <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-          <span className=' font-bold'>Hoomyz</span>
-          <span className='text-slate-500 font-bold'>Estate</span>
+          <span className='hidden sm:inline text-2xl font-bold'>Hoomyz</span>
+          <img src={logo} className='w-10 h-10 mt--2' alt="" />
+      
+        
         </h1>
       </Link>
       <form
