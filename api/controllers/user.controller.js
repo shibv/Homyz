@@ -3,6 +3,7 @@ import bcryptjs from "bcryptjs";
 import User from "../models/users.model.js";
 import Listing from "../models/listings.model.js";
 
+// User test api here
 export const test = (req, res) => {
     res.send("Hello World!!")
 }
@@ -30,14 +31,15 @@ export const updateUser = async(req, res, next) => {
      }, {new: true});
 
      //separating the passwords
-
      const {password, ...others} = updateUser._doc;
+
      res.status(200).json(others);       
     } catch (error) {
         next(error);
     }
 }
 
+// User delete api here
 export const deleteUser = async(req, res, next) => {
     if(req.user.id !== req.params.id){
         return next(errorHandler(401, "Unauthorized"));
@@ -51,6 +53,7 @@ export const deleteUser = async(req, res, next) => {
     }
 }
 
+// get user listing
 export const getUserListings = async(req, res, next) => {
 
 
@@ -69,7 +72,7 @@ export const getUserListings = async(req, res, next) => {
    }
 }
 
-
+// User get api here
 export const getUser = async(req, res, next) => {
 
     try {

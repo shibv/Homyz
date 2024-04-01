@@ -30,7 +30,7 @@ export const signin = async (req, res, next) => {
     if (!validPassword) {
       return next(errorHandler(401, "Wrong Credientials! "));
     }
-
+    // create token
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
 
     // removing password before sending it to the database/client
@@ -47,6 +47,7 @@ export const signin = async (req, res, next) => {
   }
 };
 
+// googleAuth
 export const googleAuth = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -90,7 +91,7 @@ export const googleAuth = async (req, res, next) => {
   }
 };
 
-
+// signout
 export const signout = async (req, res, next) => {
   try {
     res.clearCookie("access_token")

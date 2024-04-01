@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AliceCarousel from "react-alice-carousel";
 import 'react-alice-carousel/lib/alice-carousel.css';
-import OfferCard from '../Components/OfferCard';
 import ListingCard from '../Components/ListingCard';
 import icon from '../assets/real-estate.png'
 
@@ -11,7 +10,7 @@ const responsiveSettings = {
     items: 2,
   },
   580: {
-    items: 3,
+    items: 4,
   },
 };
 
@@ -26,7 +25,7 @@ export default function Home({themeStatus}) {
         const res = await fetch('/api/listings/get');
         const data = await res.json();
         setOfferListings(data);
-        console.log(data);
+       
         fetchRentListings();
       } catch (error) {
         console.log(error);

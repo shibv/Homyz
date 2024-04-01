@@ -2,10 +2,9 @@ import Listing from "../models/listings.model.js";
 import { errorHandler } from "../utils/error.js";
 
 
-
+// Listing create api here
 export const createListing = async (req, res, next) => {
     try {
-        console.log(req.body);
         const listing = await Listing.create(req.body);
         return res.status(200).json(listing);
     } catch (error) {
@@ -13,6 +12,7 @@ export const createListing = async (req, res, next) => {
     }
 }
 
+// Listing get api here
 export const deleteListing = async (req, res, next) => {
     const listing = await Listing.findById(req.params.id);
 
@@ -20,26 +20,21 @@ export const deleteListing = async (req, res, next) => {
     return next(errorHandler(404, "Listing not found"));
     }
 
-    // if(req.body.id !== listing.userRef){
-    //     return next(errorHandler(401, "You are not authorized to delete this listing"));
-    // }
-    console.log(req.body, listing.userRef);
-    
     try {
-        const listing = await Listing.findByIdAndDelete(req.params.id);
+         await Listing.findByIdAndDelete(req.params.id);
         return res.status(200).json('Listing has been deleted');
     } catch (error) {
         next(error);
     }
 }
 
-
+// Listing update api here
 export const updateListing = async (req, res, next) => {
     const listing = await Listing.findById(req.params.id);
     if(!listing){
         return next(errorHandler(404, "Listing not found"));
         }
-        //console.log(req.body, listing.userRef);
+    //  checking if the user is authorized to update the listing
      if(req.body.userRef !== listing.userRef){
         return next(errorHandler(401, "You are not authorized to delete this listing"));
     }
@@ -53,7 +48,7 @@ export const updateListing = async (req, res, next) => {
     }
 }
 
-
+// Listing get api here
 export const getListing = async (req, res, next) => {
     try {
         const listing = await Listing.findById(req.params.id);

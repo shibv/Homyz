@@ -6,8 +6,7 @@ import {test, updateUser, deleteUser, getUserListings, getUser} from '../control
 import { verifyToken } from '../utils/verifyUser.js';
 
 
-//  ROute
-
+//  Route
 router.get("/test", test)
 router.post("/update/:id",verifyToken, updateUser)
 router.delete("/delete/:id",verifyToken, deleteUser)

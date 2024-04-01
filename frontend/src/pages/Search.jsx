@@ -117,7 +117,7 @@ function Search() {
        setListing([...listing, ...data]);
     }
 
-    console.log(sidebardata);
+    
   return (
     <div className='flex flex-col md:flex-row'>
     <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
