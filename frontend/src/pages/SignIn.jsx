@@ -26,7 +26,7 @@ export const SignIn = () => {
         body: JSON.stringify(formData),
       })
       const data = await response.json();
-      console.log(data);
+      
       if(data.success === false){
       
        dispatch(signInFaliure(data.message))

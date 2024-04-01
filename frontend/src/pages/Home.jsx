@@ -131,7 +131,7 @@ export default function Home({themeStatus}) {
               <h2 className='text-2xl font-semibold '>Recent places for rent</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-10'>
               {rentListings.map((listing) => (
                 <ListingCard listing={listing} key={listing._id} />
               ))}
@@ -144,7 +144,7 @@ export default function Home({themeStatus}) {
               <h2 className='text-2xl font-semibold '>Recent places for sale</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
             </div>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-10'>
               {saleListings.map((listing) => (
                 <ListingCard listing={listing} key={listing._id} />
               ))}
