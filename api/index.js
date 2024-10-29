@@ -5,6 +5,7 @@ import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js' 
 import listingRouter from './routes/listing.route.js'
 import cookieParser from 'cookie-parser';
+import helmet from 'helmet'
 import path from "path"
 dotenv.config()
 
@@ -22,6 +23,7 @@ const __dirname = path.resolve();
 const app = express();
 
 // Middleware
+app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
